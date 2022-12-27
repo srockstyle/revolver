@@ -1,0 +1,34 @@
+version: "3"
+
+services:
+  app:
+    container_name: operation_controller_app
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: dev
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/app:cached
+      - rails_cache:/app/tmp/cache
+      - bundle:/usr/local/bundle
+    ports:
+      - 3101:3000
+    depends_on:
+      - db
+    stdin_open: true
+    tty: true
+    env_file: .env
+  db:
+    image: postgres:13-alpine
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    volumes:
+      - db:/var/lib/postgresql/data
+volumes:
+  bundle:
+  db:
+  rails_cache:

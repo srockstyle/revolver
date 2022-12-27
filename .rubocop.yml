@@ -1,0 +1,704 @@
+require:
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rspec
+AllCops:
+  TargetRubyVersion: 3.2
+  NewCops: enable
+  DisplayStyleGuide: true
+  StyleGuideBaseURL: https://github.com/fortissimo1997/ruby-style-guide/blob/japanese/README.ja.md
+  Exclude:
+    - 'bin/*'
+    - 'vendor/bundle/**/*'
+    - 'tmp/**/*'
+    - 'config/**/*'
+
+Metrics/ClassLength:
+  Enabled: true
+
+Metrics/MethodLength:
+  Enabled: true
+  Max: 20
+  CountAsOne:
+    - array
+    - hash
+    - heredoc
+
+Layout/EmptyLinesAroundAttributeAccessor:
+  Enabled: true
+
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
+
+Lint/DeprecatedOpenSSLConstant:
+  Enabled: true
+
+Lint/DuplicateElsifCondition:
+  Enabled: true
+
+Lint/MixedRegexpCaptureTypes:
+  Enabled: true
+
+Lint/RaiseException:
+  Enabled: true
+
+Lint/StructNewOverride:
+  Enabled: true
+
+Style/AccessorGrouping:
+  Enabled: true
+
+Style/ArrayCoercion:
+  Enabled: true
+
+Style/BisectedAttrAccessor:
+  Enabled: true
+
+Style/CaseLikeIf:
+  Enabled: true
+
+Style/ExponentialNotation:
+  Enabled: true
+
+Style/HashAsLastArrayItem:
+  Enabled: true
+
+Style/HashEachMethods:
+  Enabled: true
+
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true
+
+Style/RedundantAssignment:
+  Enabled: true
+
+Style/RedundantFileExtensionInRequire:
+  Enabled: true
+
+Style/RedundantRegexpCharacterClass:
+  Enabled: true
+
+Style/RedundantRegexpEscape:
+  Enabled: true
+
+Style/SlicingWithRange:
+  Enabled: true
+
+Style/MethodCallWithArgsParentheses:
+  Enabled: true
+  AllowedMethods:
+    - 'exit'
+    - 'mount'
+    - 'puts'
+    - 'require'
+    - 'require_relative'
+    - 'run'
+    - 'to'
+    - 'not_to'
+  Exclude:
+    - 'config/puma.rb'
+    - 'Gemfile'
+
+Rails:
+  Enabled: true
+
+Rails/ActiveRecordCallbacksOrder:
+  Enabled: true
+
+Rails/FindById:
+  Enabled: true
+
+Rails/Inquiry:
+  Enabled: true
+
+Rails/MailerName:
+  Enabled: true
+
+Rails/MatchRoute:
+  Enabled: true
+
+Rails/NegateInclude:
+  Enabled: true
+
+Rails/Pluck:
+  Enabled: true
+
+Rails/PluckInWhere:
+  Enabled: true
+
+Rails/RenderInline:
+  Enabled: true
+
+Rails/RenderPlainText:
+  Enabled: true
+
+Rails/ShortI18n:
+  Enabled: true
+
+Rails/WhereExists:
+  Enabled: true
+
+Rails/FindBy:
+  Enabled: true
+
+RSpec/ContextWording:
+  Enabled: false
+
+RSpec/NestedGroups:
+  Max: 5
+
+RSpec/MultipleExpectations:
+  Max: 6
+
+Performance/AncestorsInclude:
+  Enabled: true
+
+Performance/BigDecimalWithNumericArgument:
+  Enabled: true
+
+Performance/RedundantSortBlock:
+  Enabled: true
+
+Performance/RedundantStringChars:
+  Enabled: true
+
+Performance/ReverseFirst:
+  Enabled: true
+
+Performance/SortReverse:
+  Enabled: true
+
+Performance/Squeeze:
+  Enabled: true
+
+Performance/StringInclude:
+  Enabled: true
+
+Naming/ClassAndModuleCamelCase:
+  Enabled: false
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: true
+  EnforcedStyle: nested
+
+Style/RedundantBegin:
+  Enabled: true
+
+Layout/SpaceAroundEqualsInParameterDefault:
+  Enabled: true
+  EnforcedStyle: space
+
+Style/IfUnlessModifier:
+  Enabled: true
+
+Layout/ClosingParenthesisIndentation:
+  Enabled: true
+
+Metrics/ModuleLength:
+  Enabled: false
+
+Layout/IndentationWidth:
+  Enabled: true
+
+Style/Semicolon:
+  Enabled: true
+
+Layout/TrailingEmptyLines:
+  Enabled: true
+  EnforcedStyle: final_newline
+
+Lint/AssignmentInCondition:
+  Enabled: true
+
+Lint/SuppressedException:
+  Enabled: true
+
+Lint/ImplicitStringConcatenation:
+  Enabled: true
+
+Lint/ShadowingOuterLocalVariable:
+  Enabled: true
+
+Lint/UnderscorePrefixedVariableName:
+  Enabled: true
+
+Lint/UnusedMethodArgument:
+  Enabled: true
+
+Lint/Void:
+  Enabled: true
+
+Lint/UselessAssignment:
+  Enabled: true
+
+Lint/DuplicateHashKey:
+  Enabled: true
+
+Style/MultilineBlockChain:
+  Enabled: true
+
+Layout/EmptyLineBetweenDefs:
+    Enabled: true
+
+Style/CaseEquality:
+  Enabled: true
+
+Style/NestedParenthesizedCalls:
+  Enabled: true
+
+Style/UnlessElse:
+  Enabled: true
+
+Style/IfInsideElse:
+  Enabled: true
+
+Style/EachWithObject:
+  Enabled: true
+
+Layout/FirstParameterIndentation:
+  Enabled: true
+
+Style/GuardClause:
+  Enabled: true
+
+Style/MultilineTernaryOperator:
+  Enabled: true
+
+Style/IdenticalConditionalBranches:
+  Enabled: true
+
+Style/MutableConstant:
+  Enabled: true
+
+Style/Next:
+  Enabled: true
+
+Naming/PredicateName:
+  Enabled: true
+
+Style/RedundantParentheses:
+  Enabled: true
+
+Style/RedundantSelf:
+  Enabled: true
+
+Style/RegexpLiteral:
+  Enabled: true
+
+Layout/SpaceInsideHashLiteralBraces:
+  Enabled: true
+
+Layout/SpaceInsideParens:
+  Enabled: true
+
+Style/StringLiterals:
+  Enabled: true
+
+Style/SymbolProc:
+  Enabled: true
+
+Layout/TrailingWhitespace:
+  Enabled: true
+
+Style/RedundantInterpolation:
+  Enabled: true
+
+Style/CommentAnnotation:
+  Enabled: true
+
+Style/AndOr:
+  Enabled: true
+  EnforcedStyle: conditionals
+
+Style/ConditionalAssignment:
+  Enabled: true
+
+Lint/RescueException:
+  Enabled: true
+
+Style/Lambda:
+  Enabled: true
+
+Lint/NonLocalExitFromIterator:
+  Enabled: true
+
+Lint/ParenthesesAsGroupedExpression:
+  Enabled: true
+
+Lint/DuplicateMethods:
+  Enabled: true
+
+Lint/AmbiguousOperator:
+  Enabled: true
+
+Security/Eval:
+  Enabled: true
+
+Bundler/OrderedGems:
+  Enabled: true
+
+Layout/BlockAlignment:
+  Enabled: true
+
+Layout/ClosingHeredocIndentation:
+  Enabled: true
+
+Layout/EmptyLineAfterGuardClause:
+  Enabled: true
+
+Layout/EmptyLineAfterMagicComment:
+  Enabled: true
+
+Layout/EmptyLinesAroundAccessModifier:
+  Enabled: true
+
+Layout/EmptyLinesAroundArguments:
+  Enabled: true
+
+Layout/EmptyLinesAroundExceptionHandlingKeywords:
+  Enabled: true
+
+Layout/ExtraSpacing:
+  Enabled: true
+
+Layout/HashAlignment:
+  Enabled: true
+
+Layout/HeredocIndentation:
+  Enabled: true
+
+Layout/MultilineOperationIndentation:
+  Enabled: true
+
+Layout/SpaceAfterComma:
+  Enabled: true
+
+Layout/SpaceAroundKeyword:
+  Enabled: true
+
+Layout/SpaceBeforeBlockBraces:
+  Enabled: true
+
+Layout/SpaceInLambdaLiteral:
+  Enabled: true
+
+Layout/SpaceInsideBlockBraces:
+  Enabled: true
+
+Lint/AmbiguousBlockAssociation:
+  Enabled: true
+
+Lint/BooleanSymbol:
+  Enabled: true
+
+Lint/InheritException:
+  Enabled: true
+  EnforcedStyle: standard_error
+
+Lint/MissingCopEnableDirective:
+  Enabled: true
+
+Lint/NonDeterministicRequireOrder:
+  Enabled: true
+
+Lint/RedundantSplatExpansion:
+  Enabled: true
+
+Lint/RedundantWithIndex:
+  Enabled: true
+
+Lint/ReturnInVoidContext:
+  Enabled: true
+
+Lint/SafeNavigationChain:
+  Enabled: true
+
+Lint/ShadowedArgument:
+  Enabled: true
+
+Lint/UnusedBlockArgument:
+  Enabled: true
+
+Style/BlockComments:
+  Enabled: true
+
+Style/BlockDelimiters:
+  Enabled: true
+
+Style/CommentedKeyword:
+  Enabled: true
+
+Style/EmptyCaseCondition:
+  Enabled: true
+
+Style/HashSyntax:
+  Enabled: true
+
+Lint/MissingSuper:
+  Enabled: true
+  Exclude:
+    - 'app/batches/**/*'
+    - 'app/services/**/*'
+
+
+Style/MultilineIfModifier:
+  Enabled: true
+
+Style/NumericLiteralPrefix:
+  Enabled: true
+
+Style/RandomWithOffset:
+  Enabled: true
+
+Style/RedundantConditional:
+  Enabled: true
+
+Style/RedundantFreeze:
+  Enabled: true
+
+Style/RedundantReturn:
+  Enabled: true
+
+Style/RedundantSort:
+  Enabled: true
+
+Style/RescueStandardError:
+  Enabled: true
+  EnforcedStyle: implicit
+
+Style/SafeNavigation:
+  Enabled: true
+
+Style/SignalException:
+  Enabled: true
+
+Style/StringLiteralsInInterpolation:
+  Enabled: true
+
+Style/SymbolArray:
+  Enabled: true
+
+Style/TrailingCommaInArguments:
+  Enabled: true
+
+Style/TrailingCommaInArrayLiteral:
+  Enabled: true
+
+Style/TrailingCommaInHashLiteral:
+  Enabled: true
+
+Style/WhileUntilModifier:
+  Enabled: true
+
+Style/WordArray:
+  Enabled: true
+
+Style/ZeroLengthPredicate:
+  Enabled: true
+
+Rails/ActionFilter:
+  Enabled: true
+
+Rails/ActiveRecordAliases:
+  Enabled: true
+
+Rails/ActiveRecordOverride:
+  Enabled: true
+
+Rails/ActiveSupportAliases:
+  Enabled: true
+
+Rails/ApplicationController:
+  Enabled: true
+
+Rails/ApplicationJob:
+  Enabled: true
+
+Rails/ApplicationMailer:
+  Enabled: true
+
+Rails/ApplicationRecord:
+  Enabled: true
+
+Rails/AssertNot:
+  Enabled: true
+
+Rails/BelongsTo:
+  Enabled: true
+
+Rails/Blank:
+  Enabled: true
+
+Rails/BulkChangeTable:
+  Enabled: true
+
+Rails/ContentTag:
+  Enabled: true
+
+Rails/CreateTableWithTimestamps:
+  Enabled: true
+
+Rails/Date:
+  Enabled: true
+
+Rails/Delegate:
+  Enabled: true
+
+Rails/DelegateAllowBlank:
+  Enabled: true
+
+Rails/DynamicFindBy:
+  Enabled: true
+
+Rails/EnumHash:
+  Enabled: true
+
+Rails/EnumUniqueness:
+  Enabled: true
+
+Rails/EnvironmentComparison:
+  Enabled: true
+
+Rails/Exit:
+  Enabled: true
+
+Rails/FilePath:
+  Enabled: true
+
+Rails/FindEach:
+  Enabled: true
+
+Rails/HelperInstanceVariable:
+  Enabled: true
+
+Rails/HttpPositionalArguments:
+  Enabled: true
+
+Rails/HttpStatus:
+  Enabled: true
+
+Rails/IgnoredSkipActionFilterOption:
+  Enabled: true
+
+Rails/IndexBy:
+  Enabled: true
+
+Rails/IndexWith:
+  Enabled: true
+
+Rails/InverseOf:
+  Enabled: true
+
+Rails/LexicallyScopedActionFilter:
+  Enabled: true
+
+Rails/LinkToBlank:
+  Enabled: true
+
+Rails/Output:
+  Enabled: true
+
+Rails/OutputSafety:
+  Enabled: true
+
+Rails/PluralizationGrammar:
+  Enabled: true
+
+
+Rails/Present:
+  Enabled: true
+
+Rails/RakeEnvironment:
+  Enabled: true
+
+Rails/ReadWriteAttribute:
+  Enabled: true
+
+Rails/RedundantAllowNil:
+  Enabled: true
+
+Rails/RedundantReceiverInWithOptions:
+  Enabled: true
+
+Rails/ReflectionClassName:
+  Enabled: true
+
+Rails/RelativeDateConstant:
+  Enabled: true
+
+Rails/RequestReferer:
+  Enabled: true
+
+Rails/SafeNavigation:
+  Enabled: true
+
+Rails/SafeNavigationWithBlank:
+  Enabled: true
+
+Rails/ScopeArgs:
+  Enabled: true
+
+Rails/UnknownEnv:
+  Enabled: true
+
+Rails/Validation:
+  Enabled: true
+
+Rails/AfterCommitOverride:
+  Enabled: true
+
+Rails/ArelStar:
+  Enabled: true
+
+Rails/AttributeDefaultBlockValue:
+  Enabled: true
+
+Rails/OrderById:
+  Enabled: true
+
+Rails/PluckId:
+  Enabled: true
+
+Rails/SquishedSQLHeredocs:
+  Enabled: true
+
+Rails/WhereEquals:
+  Enabled: true
+
+Rails/HasManyOrHasOneDependent:
+  Enabled: false
+
+Rails/WhereNot:
+  Enabled: true
+
+## TODO trueにする
+
+RSpec/MultipleMemoizedHelpers:
+  Enabled: false
+
+RSpec/NamedSubject:
+  Enabled: false
+
+Style/HashLikeCase:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Rails/TimeZoneAssignment:
+  Enabled: false
