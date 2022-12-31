@@ -6,9 +6,6 @@ on:
       - main
 jobs:
   ci:
-    defaults:
-      run:
-        working-directory: ${{ inputs.working-directory }}
     name: CI
     runs-on: ubuntu-22.04
     steps:
