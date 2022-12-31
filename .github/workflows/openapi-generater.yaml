@@ -1,0 +1,75 @@
+name: "Generate Openapi Schema"
+
+on:
+  workflow_call:
+    inputs:
+      app_name:
+        description: 対象アプリケーション名（controller配下のディレクトリ名）。
+        type: string
+        required: true
+jobs:
+  ci:
+    defaults:
+      run:
+        working-directory: ${{ inputs.working-directory }}
+    name: CI
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Copy env
+        run: cp .env.template .env
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.2.0
+          bundler-cache: true
+
+      - name: Build DB image
+        run: docker compose -f docker-compose-ci.yml build
+
+      - name: Start DB container
+        run: docker compose -f docker-compose-ci.yml build
+
+      - name: Create database and load schema
+        env:
+          RAILS_ENV: test
+          EC_DATABASE_PORT: 3310
+        run: bundle exec rails db:create db:migrate
+
+      - name: Bundle install
+        run:  bundle install --jobs=4 --retry=3
+
+      - name: Run test
+        run: OPENAPI=1 bundle exec rspec
+
+      #- name: Commit updates
+      #  uses: EndBug/add-and-commit@v7
+      #  with:
+      #    branch: main
+      #    message: "Bump API Schema: ${{ steps.get_version.outputs.LATEST_VERSION }}"
+      #    add: "['doc/openapi/${{ input.app_name }}']"
+
+      - name: Define new branch name
+        id: define_new_branch_name
+        run: |
+          new_branch_name=bump-api-schema/$(echo "${ISSUE_NUM}-$(TZ=UTC-9 date '+%Y%m%d')")
+          echo "::set-output name=new_branch_name::$new_branch_name"
+
+      - name: Create branch
+        uses: EndBug/add-and-commit@v9
+        with:
+          new_branch: ${{ steps.define_new_branch_name.outputs.new_branch_name }}
+
+      - name: Create PR
+        run: |
+          gh pr create \
+            --head $NEW_BRANCH_NAME \
+            --base $BASE_BRANCH_NAME \
+            --title "$ISSUE_TITLE" \
+            --body "Update API Schema"
+        env:
+          NEW_BRANCH_NAME: ${{ steps.define_new_branch_name.outputs.new_branch_name }}
+          BASE_BRANCH_NAME: ${{ github.event.repository.default_branch }}

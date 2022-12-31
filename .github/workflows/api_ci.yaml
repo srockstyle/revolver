@@ -1,0 +1,22 @@
+name: "API: CI"
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/api_ci.yaml"
+      - "app/controllers/api/**"
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: Development Environment
+        required: true
+        type: environment
+
+jobs:
+  ci:
+    name: app ci
+    uses: ./.github/workflows/app_ci.yaml
+    with:
+      working-directory: api
