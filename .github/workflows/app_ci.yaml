@@ -1,12 +1,9 @@
 name: "Application: CI"
 
 on:
-  workflow_call:
-    inputs:
-      app_name:
-        description: 対象アプリケーション名（controller配下のディレクトリ名）。
-        type: string
-        required: true
+  push:
+    branches:
+      - main
 jobs:
   ci:
     defaults:
