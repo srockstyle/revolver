@@ -2,7 +2,7 @@ default: &default
   adapter: postgresql
   encoding: utf8
   pool: <%=  ENV.fetch("RAILS_MAX_THREADS") { 8 } %>
-  host: <%=  ENV.fetch("REVOLVER_DB_HOST') { db } %>
+  host: <%=  ENV.fetch("REVOLVER_DB_HOST") { db } %>
 development:
   <<: *default
   database: revolver_development
