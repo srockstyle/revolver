@@ -2,13 +2,14 @@ default: &default
   adapter: postgresql
   encoding: utf8
   pool: <%=  ENV.fetch("RAILS_MAX_THREADS") { 8 } %>
-  host: 127.0.0.1
+  host: <%= ENV['DATABASE_URL'] %>
   password: password
 development:
   <<: *default
   database: revolver_development
 test:
   <<: *default
+  host: '127.0.0.1'
   database: revolver_test
 production:
   <<: *default
