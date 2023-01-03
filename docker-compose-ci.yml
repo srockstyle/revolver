@@ -8,3 +8,9 @@ services:
     environment:
       - POSTGRES_USER=root
       - POSTGRES_HOST_AUTH_METHOD=trust
+    tty: true
+    healthcheck:
+      test: ["CMD","pg_isready", "-U", "postgres"]
+      interval: 5s
+      timeout: 1s
+      retries: 10
