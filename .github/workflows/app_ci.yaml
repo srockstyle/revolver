@@ -26,7 +26,7 @@ jobs:
         run: docker compose -f docker-compose-ci.yml build
 
       - name: Start DB container
-        run: docker compose -f docker-compose-ci.yml build
+        run: docker compose -f docker-compose-ci.yml up
 
       - name: Create database and load schema
         env:
