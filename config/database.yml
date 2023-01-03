@@ -9,6 +9,7 @@ development:
   database: revolver_development
 test:
   <<: *default
+  username: root
   host: '127.0.0.1'
   database: revolver_test
 production:
