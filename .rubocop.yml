@@ -12,6 +12,7 @@ AllCops:
     - 'vendor/bundle/**/*'
     - 'tmp/**/*'
     - 'config/**/*'
+    - 'db/schema.rb'
 
 Metrics/ClassLength:
   Enabled: true
