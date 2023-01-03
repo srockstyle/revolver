@@ -33,8 +33,12 @@ jobs:
       - name: Create database and load schema
         env:
           RAILS_ENV: test
-          EC_DATABASE_PORT: 3310
-        run: bundle exec rails db:create db:migrate
+        run: bundle exec rails db:create
+
+      - name: Create database and load schema
+        env:
+          RAILS_ENV: test
+        run: bundle exec rails db:migrate
 
       - name: Run lint
         run: bundle exec rubocop
