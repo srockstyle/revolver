@@ -9,9 +9,6 @@ on:
         required: true
 jobs:
   ci:
-    defaults:
-      run:
-        working-directory: ${{ inputs.working-directory }}
     name: CI
     runs-on: ubuntu-22.04
     steps:
@@ -64,7 +61,7 @@ jobs:
         with:
           branch: ${{ steps.define_new_branch_name.outputs.new_branch_name }}
           message: "Update API Schema: ${{ steps.get_version.outputs.LATEST_VERSION }}"
-          add: "['doc/openapi/${{ input.app_name }}.yaml']"
+          add: "['doc/openapi/${{ inputs.app_name }}.yaml']"
 
       - name: Create PR
         run: |
