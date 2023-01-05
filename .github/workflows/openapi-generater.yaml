@@ -64,7 +64,7 @@ jobs:
         with:
           branch: ${{ steps.define_new_branch_name.outputs.new_branch_name }}
           message: "Update API Schema: ${{ steps.get_version.outputs.LATEST_VERSION }}"
-          add: "['doc/openapi/${{ input.app_name }}']"
+          add: "['doc/openapi/${{ input.app_name }}.yaml']"
 
       - name: Create PR
         run: |

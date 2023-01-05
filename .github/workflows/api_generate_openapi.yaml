@@ -18,7 +18,7 @@ on:
 
 jobs:
   ci:
-    name: app ci
+    name: Generate Openapi Schema
     uses: ./.github/workflows/openapi-generater.yaml
     with:
       app_name: api
