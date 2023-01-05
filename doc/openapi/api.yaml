@@ -1,7 +1,7 @@
 ---
 openapi: 3.0.3
 info:
-  title: app
+  title: revolver
   version: 1.0.0
 servers: []
 paths:
@@ -32,7 +32,7 @@ paths:
                       type: string
               example:
               - id: 1
-                created_at: '2023-01-05T09:43:56.520+09:00'
-                updated_at: '2023-01-05T09:43:56.520+09:00'
-                name: ヤドラン
-                description: グレンじま
+                name: レアコイル
+                description: ニビシティ
+                created_at: '2023-01-05T11:08:22.817+09:00'
+                updated_at: '2023-01-05T11:08:22.817+09:00'
