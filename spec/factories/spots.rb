@@ -14,8 +14,3 @@
 #
 #  index_spots_on_name  (name)
 #
-# FactoryBot.define do
-#   factory :spot do
-#
-#   end
-# end

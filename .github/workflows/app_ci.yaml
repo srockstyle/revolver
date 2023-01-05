@@ -30,15 +30,15 @@ jobs:
       - name: Start DB container
         run: docker compose -f docker-compose-ci.yml up -d --wait
 
-      - name: Create database and load schema
+      - name: Create database
         env:
           RAILS_ENV: test
         run: bundle exec rails db:create
 
-      - name: Create database and load schema
+      - name: Create schema
         env:
           RAILS_ENV: test
-        run: bundle exec rails db:migrate
+        run: bundle exec rails ridgepole:apply
 
       - name: Run lint
         run: bundle exec rubocop
