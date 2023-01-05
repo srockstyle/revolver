@@ -48,9 +48,8 @@ jobs:
       - name: Define new branch name
         id: define_new_branch_name
         run: |
-          new_branch_name=bump-api-schema/$(echo "${ISSUE_NUM}-$(TZ=UTC-9 date '+%Y%m%d')")
+          new_branch_name=update-api-schema/$(echo "${ISSUE_NUM}-$(TZ=UTC-9 date '+%Y%m%d%H%M%S')")
           echo "::set-output name=new_branch_name::$new_branch_name"
-
       - name: Create branch
         uses: EndBug/add-and-commit@v9
         with:
