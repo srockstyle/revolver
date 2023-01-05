@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "set-env-to-github_env": "^1.1.1"
+  }
+}

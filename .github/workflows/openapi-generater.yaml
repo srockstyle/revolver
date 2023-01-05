@@ -49,7 +49,7 @@ jobs:
         id: define_new_branch_name
         run: |
           new_branch_name=update-api-schema/$(echo "${ISSUE_NUM}-$(TZ=UTC-9 date '+%Y%m%d%H%M%S')")
-          echo "::set-output name=new_branch_name::$new_branch_name"
+          echo "new_branch_name=$new_branch_name" >> $GITHUB_OUTPUT
       - name: Create branch
         uses: EndBug/add-and-commit@v9
         with:
@@ -59,7 +59,7 @@ jobs:
         uses: EndBug/add-and-commit@v7
         with:
           branch: ${{ steps.define_new_branch_name.outputs.new_branch_name }}
-          message: "Update API Schema: ${{ steps.get_version.outputs.LATEST_VERSION }}"
+          message: "Update ${{ inputs.app_name }} Schema: ${{ steps.get_version.outputs.LATEST_VERSION }}"
           add: "['doc/openapi/${{ inputs.app_name }}.yaml']"
 
       - name: Create PR
@@ -72,4 +72,5 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           NEW_BRANCH_NAME: ${{ steps.define_new_branch_name.outputs.new_branch_name }}
+          ISSUE_TITLE: "Update ${{ inputs.app_name }} Schema: ${{ steps.get_version.outputs.LATEST_VERSION }}"
           BASE_BRANCH_NAME: ${{ github.event.repository.default_branch }}
