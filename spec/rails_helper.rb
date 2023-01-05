@@ -67,10 +67,10 @@ RSpec.configure do |config|
 end
 
 ## Rspec::Openapi
-RSpec::OpenAPI.path = -> (example) {
+RSpec::OpenAPI.path = lambda { |example|
   case example.file_path
-  when %r[spec/requests/api/] then 'doc/openapi/api.yaml'
-  when %r[spec/requests/api_internal/] then 'doc/openapi/api_internal.yaml'
+  when %r{spec/requests/api/} then 'doc/openapi/api.yaml'
+  when %r{spec/requests/api_internal/} then 'doc/openapi/api_internal.yaml'
   else 'doc/openapi.yaml'
   end
 }

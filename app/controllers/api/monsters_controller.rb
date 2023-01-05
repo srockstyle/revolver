@@ -1,13 +1,13 @@
-class Api::MonstersController < ApplicationController
+# frozen_string_literal: true
 
-  def index
-    @monsters = Monster.all
-    #render json: @monsters
-    render json: @monsters
+module Api
+  class MonstersController < ApplicationController
+    def index
+      @monsters = Monster.all
+      # render json: @monsters
+      render(json: @monsters)
+    end
+
+    def show; end
   end
-
-  def show
-
-  end
-
 end

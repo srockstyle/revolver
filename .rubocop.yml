@@ -13,6 +13,7 @@ AllCops:
     - 'tmp/**/*'
     - 'config/**/*'
     - 'db/schema.rb'
+    - 'db/Schemafile.rb'
 
 Metrics/ClassLength:
   Enabled: true

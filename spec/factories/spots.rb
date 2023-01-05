@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: spots
@@ -12,8 +14,8 @@
 #
 #  index_spots_on_name  (name)
 #
-FactoryBot.define do
-  factory :spot do
-    
-  end
-end
+# FactoryBot.define do
+#   factory :spot do
+#
+#   end
+# end

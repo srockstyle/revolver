@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 {
   id: @api_monster.id,
   created_at: @api_monster.created_at,

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: spots
@@ -14,6 +16,6 @@
 #
 require 'rails_helper'
 
-RSpec.describe Spot, type: :model do
+RSpec.describe(Spot) do
   pending "add some examples to (or delete) #{__FILE__}"
 end

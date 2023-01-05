@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 json = @monsters.map do |monster|
   {
     id: monster.id,
