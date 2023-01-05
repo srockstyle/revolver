@@ -32,6 +32,7 @@ rescue ActiveRecord::PendingMigrationError => e
   abort(e.to_s.strip)
 end
 RSpec.configure do |config|
+  config.include(FactoryBot::Syntax::Methods)
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   # config.fixture_path = "#{Rails.root}/spec/fixtures"
   config.fixture_path = Rails.root.join('/spec/fixtures')
@@ -64,3 +65,22 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 end
+
+## Rspec::Openapi
+RSpec::OpenAPI.path = -> (example) {
+  case example.file_path
+  when %r[spec/requests/api/] then 'doc/openapi/api.yaml'
+  when %r[spec/requests/api_internal/] then 'doc/openapi/api_internal.yaml'
+  else 'doc/openapi.yaml'
+  end
+}
+# Disable generating `example`
+RSpec::OpenAPI.enable_example = true
+# Change `info.version`
+RSpec::OpenAPI.application_version = '1.0.0'
+# Set request `headers` - generate parameters with headers for a request
+RSpec::OpenAPI.request_headers = %w[X-Authorization-Token]
+# Generate a custom description, given an RSpec example
+# RSpec::OpenAPI.description_builder = -> (example) { example.description }
+# Change the example type(s) that will generate schema
+RSpec::OpenAPI.example_types = %i[request]

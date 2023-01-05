@@ -37,7 +37,7 @@ module Revolver
     config.generators do |g|
       g.assets false
       g.helper false
-      g.template_engine :rb
+      g.template_engine :jb
       g.stylesheets     false
       g.javascripts     false
       g.test_framework  :rspec, view_specs: false, helper_specs: false, request_specs: true,fixture: true

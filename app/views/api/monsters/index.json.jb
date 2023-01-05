@@ -1,0 +1,8 @@
+json = @monsters.map do |monster|
+  {
+    id: monster.id,
+    url: monster.name
+  }
+end
+
+json

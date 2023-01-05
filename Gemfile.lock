@@ -105,17 +105,20 @@ GEM
     date (3.3.3)
     debug (1.7.1)
     diff-lcs (1.5.0)
+    diffy (3.4.2)
     erubi (1.12.0)
     factory_bot (6.2.1)
       activesupport (>= 5.0.0)
     factory_bot_rails (6.2.0)
       factory_bot (~> 6.2.0)
       railties (>= 5.0.0)
-    ffaker (2.21.0)
+    faker (3.1.0)
+      i18n (>= 1.8.11, < 2)
     globalid (1.0.0)
       activesupport (>= 5.0)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
+    jb (0.8.0)
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
@@ -205,6 +208,9 @@ GEM
     rake (13.0.6)
     regexp_parser (2.6.1)
     rexml (3.2.5)
+    ridgepole (1.2.0)
+      activerecord (>= 5.1, < 7.1)
+      diffy
     rspec (3.12.0)
       rspec-core (~> 3.12.0)
       rspec-expectations (~> 3.12.0)
@@ -299,7 +305,8 @@ DEPENDENCIES
   committee-rails
   debug
   factory_bot_rails
-  ffaker
+  faker
+  jb
   jbuilder
   json_spec
   pg
@@ -307,6 +314,7 @@ DEPENDENCIES
   puma (~> 5.0)
   rails (~> 7.0.4)
   rails-erd
+  ridgepole
   rspec-openapi
   rspec-rails
   rubocop

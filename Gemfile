@@ -10,6 +10,9 @@ gem 'sprockets-rails'
 
 gem 'pg'
 
+gem 'jb'
+gem 'ridgepole'
+
 gem 'puma', '~> 5.0'
 
 gem 'jbuilder'
@@ -27,7 +30,7 @@ group :development, :test do
 
   gem 'factory_bot_rails'
 
-  gem 'ffaker'
+  gem 'faker'
 
   gem 'json_spec'
 
