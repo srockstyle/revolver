@@ -1,0 +1,45 @@
+# name: "Deploy to ECR"
+#
+# on:
+#   push:
+#     branches:
+#       - "main"
+#   workflow_dispatch:
+#     inputs:
+#       environment:
+#         description: Deployment Environment
+#         required: true
+#         type: environment
+# jobs:
+#   build:
+#     name: Build and Push
+#     runs-on: ubuntu-22.04
+#     permissions:
+#       id-token: write
+#       contents: read
+#     environment: ${{ inputs.environment || 'dev' }}
+#     concurrency: app-image-build-${{ inputs.environment  || 'dev' }}
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@
+#       - name: Configure AWS credentials
+#         uses: aws-actions/configure-aws-credentials@v1
+#         with:
+#           role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+#           aws-region: ap-northeast
+#       - name: Login to ECR
+#         id: login-ecr
+#         uses: aws-actions/amazon-ecr-login@
+#       - name: Container Build and Push
+#         env:
+#           APP_VERSION: ${{ github.sha }}
+#           REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+#           REPOSITORY_NAME: revolver-${{ inputs.environment  || 'dev' }}
+#         run: |
+#           docker build \
+#             --target prod \
+#             --tag $ECR_REGISTRY/$REPOSITORY_NAME:$APP_VERSION \
+#             --tag $ECR_REGISTRY/$REPOSITORY_NAME:latest \
+#             .
+#           docker push $ECR_REGISTRY/$REPOSITORY_NAME:$APP_VERSION
+#           docker push $ECR_REGISTRY/$REPOSITORY_NAME:late

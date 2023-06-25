@@ -1,0 +1,23 @@
+# name: Slack Notification
+#
+# on:
+#   pull_request:
+#     types:
+#       - closed
+#
+# env:
+#   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+#
+# jobs:
+#   slack_notification:
+#     runs-on: ubuntu-latest
+#
+#     steps:
+#       - name: Checkout repository
+#         uses: actions/checkout@v2
+#       - name: Post PR information to Slack
+#         with:
+#           - text: ${{aaa }}
+#         run: |
+#           MESSAGE=$(echo "PR ${{ github.event.pull_request.title }} merged by ${{ github.event.sender.login }}")
+#           curl -X POST -H 'Content-type: application/json' --data "{\"text\":\"$MESSAGE\"}" $SLACK_WEBHOOK_URL
